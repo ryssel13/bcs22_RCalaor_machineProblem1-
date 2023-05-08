@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess the Number</title>
+  </head>
+  <body>
+    <h1>Guess the Number</h1>
+    <p>Guess a number between 1 and 100. You have 10 tries to get it right.</p>
+    <script>
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+      const maxTries = 10;
+      let guessedNum, tries = 0;
+
+      while (true){
+        tries++;
+        guessedNum = parseInt(prompt('Guess a number between 1 and 100: '));
+        if (guessedNum < randomNumber) {
+          alert('Too low! Guess again.');
+        } else if (guessedNum > randomNumber) {
+          alert('Too high! Guess again.');
+        } else {
+          alert(`Congratulations! You guessed the number in ${tries} tries`);
+          break; // exit the loop after the player guesses the correct number
+        }
+
+        if (tries === maxTries) {
+          alert(`Sorry, you ran out of tries. The number was ${randomNumber}.`);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
